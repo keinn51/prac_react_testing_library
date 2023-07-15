@@ -3,7 +3,7 @@ import React from "react";
 const Profile = ({ username, name }) => {
     return (
         <div>
-            <b>{username}</b>&nbsp;
+            <p>{username}</p>
             <span>({name})</span>
         </div>
     );
