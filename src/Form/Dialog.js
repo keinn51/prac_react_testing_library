@@ -1,24 +1,21 @@
 import React, { useState } from "react";
 
 export default function Dialog({ title, description, onClickClose, onClickSubmit }) {
-    const [state, setState] = useState({ contents: "" });
-
-    function handleChange(event) {
-        const { value, name } = event.target;
-
-        setState({
-            ...state,
-            [name]: value,
-        });
-    }
+    const [text, setText] = useState("");
 
     function handleClickSubmit() {
-        if (!state.contents) {
-            console.error("에러가 발생했습니다.");
-            return;
+        const stringOrNumberRegex = /^[a-zA-Z0-9]+$/;
+        switch (true) {
+            case text === "":
+                console.error("입력값이 없는데요..");
+                break;
+            case stringOrNumberRegex.test(text) === false:
+                alert("똑바로 좀 입력해");
+                break;
+            default:
+                onClickSubmit(text);
+                console.log("입력 보내기 성공");
         }
-
-        onClickSubmit(state.contents);
     }
 
     return (
@@ -30,8 +27,8 @@ export default function Dialog({ title, description, onClickClose, onClickSubmit
                     type="text"
                     placeholder="contents"
                     name="contents"
-                    onChange={handleChange}
-                    value={state.contents}
+                    onChange={(e) => setText(e.target.value)}
+                    value={text}
                 />
             </div>
             <div>
