@@ -1,5 +1,5 @@
 import React from "react";
-import Profile from "./Profile";
+import Profile from "./SimpleText/Profile";
 
 const App = () => {
     return <Profile username="kyungsle" name="이경수" />;
