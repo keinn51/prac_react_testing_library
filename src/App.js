@@ -15,7 +15,7 @@ const App = () => (
                     title={"hello world"}
                     description="this is jest test for form"
                     onClickClose={() => {}}
-                    onClickSubmit={() => []}
+                    onClickSubmit={() => {}}
                 />
             }
         ></Route>
